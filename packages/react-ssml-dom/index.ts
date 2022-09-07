@@ -82,8 +82,10 @@ const ReactSSML = {
    * @param {Node} container where to render
    */
   render(element: JSX.Element, container: Node) {
-    const reactiveContainer = reconciler.createContainer(container, 0, false, null);
+    const reactiveContainer = reconciler.createContainer(container, 0, null, false, null, "", (_e) => void 0, null);
     reconciler.updateContainer(element, reactiveContainer, null, null);
+
+    return reactiveContainer;
   },
 
   renderToString(element: JSX.Element): string {
@@ -94,6 +96,6 @@ const ReactSSML = {
   },
 };
 
-export { ReactSSML };
+export { ReactSSML, reconciler };
 
 export default ReactSSML;
